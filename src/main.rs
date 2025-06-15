@@ -5,10 +5,8 @@ use sudoku::Sudoku;
 use crate::sa_solver::SimulatedAnnealingProblem;
 
 fn main() {
-    // Example Sudoku puzzle (0 represents empty cells)
+    // NYT Easy June 15, 2025
     let puzzle = "300002478924007030000354200248010000000598040095040780002801900807400053001900000";
-    // Alternative representation: 
-    // "53..7....\n6..195...\n.98....6.\n8...6...3\n4..8.3..1\n7...2...6\n.6....28.\n...419..5\n....8..79"
 
     println!("Initial Sudoku puzzle:");
     let initial_sudoku = Sudoku::get_initial_state(puzzle);
@@ -16,9 +14,9 @@ fn main() {
     println!("Initial energy: {}", initial_sudoku.calculate_energy());
 
     // Simulated annealing parameters
-    let initial_temp = 10.0;
-    let cooling_rate = 0.9999999;
-    let max_iterations = 500_000;
+    let initial_temp = 90.0;
+    let cooling_rate = 0.999999;
+    let max_iterations = 5_000_000;
 
     println!("\nRunning simulated annealing...");
     let solved_sudoku = sa_solver::solve_simulated_annealing(
